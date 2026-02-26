@@ -1,0 +1,37 @@
+Place your YOLOv8-format dataset directories here.
+This file exists solely to keep the datasets/ folder tracked by git.
+All dataset contents are ignored via .gitignore.
+
+Expected folder structure
+--------------------------
+Each dataset must follow the standard YOLOv8 layout:
+
+datasets/
+└── <dataset-name>.yolov8/
+    ├── data.yaml
+    ├── train/
+    │   ├── images/          # Training images (.jpg, .png, ...)
+    │   └── labels/          # Corresponding YOLO label files (.txt)
+    ├── valid/
+    │   ├── images/
+    │   └── labels/
+    └── test/                # Optional
+        ├── images/
+        └── labels/
+
+data.yaml format
+-----------------
+train: ../train/images
+val:   ../valid/images
+test:  ../test/images   # optional
+
+nc: <number of classes>
+names: ['class1', 'class2', ...]
+
+Currently used datasets
+------------------------
+- Aerial Cars.v3-roboflow-fast-model-augmented3x.yolov8
+- military drones images.v1i.yolov8
+- Military Vehicle Detection.v7i.yolov8
+- tank_agumentation.v1i.yolov8
+- tank-detect.v3i.yolov8

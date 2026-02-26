@@ -9,8 +9,9 @@ dist/
 build/
 .eggs/
 
-# Dataset
-datasets/*
+# Dataset (keep folder structure, ignore contents)
+datasets/**
+!datasets/place_dataset_dirs_here.txt
 
 # Models
 weights/*.pt
