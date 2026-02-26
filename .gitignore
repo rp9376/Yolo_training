@@ -1,0 +1,57 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Dataset
+datasets/*
+
+# Models
+weights/*.pt
+yolov8/runs/
+yolov26/runs/
+
+
+# Training outputs (large, generated per run)
+yolov8/runs/
+yolov26/runs/
+
+# Extracted/organized model outputs (generated)
+yolov8/extracted_models/
+yolov26/extracted_models/
+
+# Queue state and logs (generated per run)
+yolov8/training_queue.json
+yolov26/training_queue.json
+yolov8/queue_progress.log
+yolov26/queue_progress.log
+yolov8/queue_output.log
+yolov26/queue_output.log
+
+# Ultralytics cache and settings
+*.cache
+ultralytics/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# Large binary weight files (base weights ARE tracked in weights/)
+# Uncomment the line below to exclude them from git too:
+# weights/*.pt
