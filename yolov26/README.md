@@ -15,7 +15,7 @@ python train.py
 
 # Or set up a queue and run unattended
 python setup_queue.py
-nohup ../../.venv/bin/python3 run_queue.py > queue_output.log 2>&1 &
+nohup ../.venv/bin/python3 run_queue.py > queue_output.log 2>&1 &
 ```
 
 ## Scripts
