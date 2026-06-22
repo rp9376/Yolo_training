@@ -8,33 +8,30 @@ __pycache__/
 dist/
 build/
 .eggs/
+.pytest_cache/
 
 # Dataset (keep folder structure, ignore contents)
 datasets/**
 !datasets/place_dataset_dirs_here.txt
 
-# Models
-*.pt
+# Base weight files (gitignored; seeded by scripts/setup.sh)
 weights/*.pt
-yolov8/runs/
-yolov26/runs/
-
+*.pt
 
 # Training outputs (large, generated per run)
-yolov8/runs/
-yolov26/runs/
+/runs/
 
-# Extracted/organized model outputs (generated)
-yolov8/extracted_models/
-yolov26/extracted_models/
+# Queue state, logs, PID (generated at runtime)
+training_queue.json
+runs/*.log
+runs/.queue_runner.pid
 
-# Queue state and logs (generated per run)
-yolov8/training_queue.json
-yolov26/training_queue.json
-yolov8/queue_progress.log
-yolov26/queue_progress.log
-yolov8/queue_output.log
-yolov26/queue_output.log
+# Legacy generated outputs
+legacy/*/runs/
+legacy/*/extracted_models/
+legacy/*/training_queue.json
+legacy/*/queue_progress.log
+legacy/*/queue_output.log
 
 # Ultralytics cache and settings
 *.cache
@@ -44,16 +41,10 @@ ultralytics/
 .ipynb_checkpoints/
 *.ipynb
 
-# OS
+# OS / editor
 .DS_Store
 Thumbs.db
 *.swp
 *.swo
-
-# Editor
 .vscode/settings.json
 .idea/
-
-# Large binary weight files (base weights ARE tracked in weights/)
-# Uncomment the line below to exclude them from git too:
-# weights/*.pt

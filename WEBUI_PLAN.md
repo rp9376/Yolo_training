@@ -65,14 +65,9 @@ README.md Dataset_fetching.md .gitignore
 
 - Python **3.12.3**, system interpreter. **No `.venv` yet.**
 - Installed: `psutil 5.9.8`. **Not installed:** `ultralytics`, `torch`, `fastapi`, `pynvml`.
-- GPU: **1× NVIDIA GTX 860M, 4 GB, driver 535 / CUDA 12.2**; `nvidia-smi` works.
-- **No datasets present**, **no `weights/` dir**, only `yolo26n.pt` copies inside the two tool dirs.
-- Node 18 present but **must not be used** (no build step).
+- GPU: **4× NVIDIA H100, 80 GB (lookup other details).
+- Some datasets already present
 
-> ⚠️ The GTX 860M is Maxwell (compute capability **5.0**). Modern prebuilt PyTorch wheels may
-> not include `sm_50`, so CUDA training on *this* machine may be unavailable. **The entire web UI
-> (hardware view, datasets, queue, models) must work regardless**, and training must fall back to
-> CPU. All automated training tests run on **CPU** so they never depend on the old GPU. See §13.
 
 ---
 
@@ -513,7 +508,7 @@ dependency to the shipped tool; the HTTP smoke + this manual pass are the requir
 
 | Risk | Mitigation |
 |---|---|
-| Prebuilt torch lacks `sm_50` → no CUDA on the GTX 860M | UI/hardware/queue/models work without torch (lazy import); training falls back to CPU; all auto-tests run on CPU; README documents installing a compatible torch for GPU training |
+|
 | `ultralytics`/`torch` install is large/slow | Allow setup to take time; gate training tests behind import availability; never block app boot on these imports |
 | Long-running training blocks the API | Training runs in a **separate subprocess** (`core.queue_runner`); API only reads state/logs |
 | Browser zip of thousands of files | Upload a **single .zip**; stream to disk; or **register a server path** (no upload) |

@@ -1,0 +1,23 @@
+# YOLO Training Studio — runtime + dev dependencies.
+# Prefer the minimal set (plain uvicorn, not uvicorn[standard]).
+
+# Web backend
+fastapi
+uvicorn
+python-multipart      # required for zip upload (multipart form)
+
+# Hardware + config
+psutil
+nvidia-ml-py          # provides pynvml; nvidia-smi fallback covers its absence
+pyyaml
+
+# Training stack (pulls torch + torchvision)
+ultralytics
+
+# Model export targets (so ONNX export works offline; TorchScript needs no extra deps)
+onnx
+onnxslim
+
+# dev / test
+pytest
+httpx                 # FastAPI TestClient
